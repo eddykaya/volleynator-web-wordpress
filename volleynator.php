@@ -1,7 +1,7 @@
 <?php
     /**
      * @package Hello_Dolly
-     * @version 0.0.1
+     * @version 0.0.2
      */
     /*
     Plugin Name: Volleynator-Web
@@ -17,7 +17,7 @@ include 'config/configuration.php';
 
 function volleynator_table($atts = [], $content = null)
 {
-    $response = fetchTable(strtolower($atts['association']), $atts['league_id'], $atts['competition_id']);
+    $response = volleynator_fetch_table(strtolower($atts['association']), $atts['league_id'], $atts['competition_id']);
 
     $highlighted_team = $atts['team'];
 
@@ -35,11 +35,11 @@ function volleynator_table($atts = [], $content = null)
         foreach ($response->tableEntries as $item) {
             $tBody = $tBody . "
 						<tr>
-							<td>" . get_position($item, $highlighted_team) . "</td>
-							<td>" . get_team($item, $highlighted_team) . "</td>
-							<td>" . get_games($item, $highlighted_team) . "</td>
-							<td>" . get_sets($item, $highlighted_team) . "</td>
-							<td>" . get_points($item, $highlighted_team) . "</td>
+							<td>" . volleynator_get_position($item, $highlighted_team) . "</td>
+							<td>" . volleynator_get_team($item, $highlighted_team) . "</td>
+							<td>" . volleynator_get_games($item, $highlighted_team) . "</td>
+							<td>" . volleynator_get_sets($item, $highlighted_team) . "</td>
+							<td>" . volleynator_get_points($item, $highlighted_team) . "</td>
 						</tr>";
         };
 
@@ -64,7 +64,7 @@ function volleynator_table($atts = [], $content = null)
     return "<p>Konnte Tabelle nicht laden</p>";
 }
 
-function get_position($table_entry, $highlighted_team)
+function volleynator_get_position($table_entry, $highlighted_team)
 {
     $response = "";
     if ($table_entry->team == $highlighted_team) {
@@ -75,7 +75,7 @@ function get_position($table_entry, $highlighted_team)
     return $response;
 }
 
-function get_games($table_entry, $highlighted_team)
+function volleynator_get_games($table_entry, $highlighted_team)
 {
     $response = "";
     if ($table_entry->team == $highlighted_team) {
@@ -86,7 +86,7 @@ function get_games($table_entry, $highlighted_team)
     return $response;
 }
 
-function get_sets($table_entry, $highlighted_team)
+function volleynator_get_sets($table_entry, $highlighted_team)
 {
     $response = "";
     $sets = $table_entry->positiveSets . ":" . $table_entry->negativeSets;
@@ -98,7 +98,7 @@ function get_sets($table_entry, $highlighted_team)
     return $response;
 }
 
-function get_points($table_entry, $highlighted_team)
+function volleynator_get_points($table_entry, $highlighted_team)
 {
     $response = "";
     if ($table_entry->team == $highlighted_team) {
@@ -109,7 +109,7 @@ function get_points($table_entry, $highlighted_team)
     return $response;
 }
 
-function get_team($table_entry, $highlighted_team)
+function volleynator_get_team($table_entry, $highlighted_team)
 {
     $response = "";
     if ($table_entry->team == $highlighted_team) {
@@ -120,10 +120,10 @@ function get_team($table_entry, $highlighted_team)
     return $response;
 }
 
-function fetchTable($association, $league_id, $competition_id)
+function volleynator_fetch_table($association, $league_id, $competition_id)
 {
-    $url = get_url($association, $league_id, $competition_id);
-    $args = getRequestArgs();
+    $url = volleynator_get_url($association, $league_id, $competition_id);
+    $args = volleynator_get_request_args();
     $http_response = wp_remote_get($url, $args);
     $response_json = json_decode(wp_remote_retrieve_body($http_response));
 
@@ -137,7 +137,7 @@ function fetchTable($association, $league_id, $competition_id)
     }
 }
 
-function get_url($association, $league_id, $competition_id)
+function volleynator_get_url($association, $league_id, $competition_id)
 {
     $country = get_option('volleynator_settings_country');
     if ($country == 'Deutschland') {
@@ -149,7 +149,7 @@ function get_url($association, $league_id, $competition_id)
     }
 }
 
-function getRequestArgs()
+function volleynator_get_request_args()
 {
     $username = get_option('volleynator_settings_username');
     $password = get_option('volleynator_settings_password');
