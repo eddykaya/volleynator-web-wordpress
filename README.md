@@ -30,10 +30,10 @@ The association of the league you wish to display. Available associations are:
 * DVV
 
 #### league_id
-The ID of the league. You can find a list of IDs under https://www.volleynator.de
+The ID of the league. You can find a list of IDs under https://volleynator.de/page/competition-ids/
 
 #### competition_id
-The ID of the competition. You can find a list of IDs under https://www.volleynator.de
+The ID of the competition. You can find a list of IDs under https://volleynator.de/page/competition-ids/
 
 
 ### Example usage:

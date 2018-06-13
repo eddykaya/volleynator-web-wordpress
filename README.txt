@@ -50,10 +50,10 @@ The association of the league you wish to display. Available associations are:
 * DVV
 
 3. league_id
-The ID of the league. You can find a list of IDs under https://www.volleynator.de
+The ID of the league. You can find a list of IDs under https://volleynator.de/page/competition-ids/
 
 4. competition_id
-The ID of the competition. You can find a list of IDs under https://www.volleynator.de
+The ID of the competition. You can find a list of IDs under https://volleynator.de/page/competition-ids/
 
 == Example usage ==
 [volleynator_table team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
