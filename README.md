@@ -2,10 +2,10 @@
 
 ## Configuration
 The plugin needs some parameters in order to work properly. If you wish to use the plugin with tables from the DVV Bundesliga, you can use the following standard credentials:
-* Username: volleynator-web-dvv
-* Password: volleynator-web-dvv
+* Username: public
+* Password: public
 * API Key:yQXQ4mqDvlGd2eVxeeaKiWPt49euUpAArzFsbLhhazJvlZTMGwejqHEYIMfxsmoh
-For all other associations, you need to buy another API key. See https://www.volleynator.de
+For all other associations, you need to buy an API key. See https://www.volleynator.de
 
 ### Username
 You need a username to use the plugin
@@ -38,3 +38,4 @@ The ID of the competition. You can find a list of IDs under https://volleynator.
 
 ### Example usage:
 [volleynator_table team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
+[volleynator_matchplan team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']

@@ -16,7 +16,8 @@ A plugin which enables you to display volleyball tables from germany and austria
 Download and install the plugin from the wordpress plugin store.
 
 == Changelog ==
-
+= 2.0.0 =
+* Moved plugin to new backend
 = 0.0.2 =
 * Added shortcode to display tables
 
@@ -57,3 +58,4 @@ The ID of the competition. You can find a list of IDs under https://volleynator.
 
 == Example usage ==
 [volleynator_table team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
+[volleynator_matchplan team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
