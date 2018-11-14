@@ -1,13 +1,13 @@
 <?php
     /**
-     * @version 2.0.0
+     * @version 2.0.1
      */
     /*
     Plugin Name: Volleynator-Web
     Plugin URI: https://www.volleynator.de/site/volleynator-web/
     Description: Display Volleyball results  on your website
     Author: Edwin Rolle
-    Version: 2.0.0
+    Version: 2.0.1
     Author URI: https://www.volleynator.de
     Text Domain: volleynator-web
     */
@@ -166,15 +166,11 @@ if ($match->home == $highlighted_team) {
 function volleynator_get_start_time($match, $highlighted_team)
 {
     $response = "";
-    $start_time_minutes = $match->startTime[1];
-    if ($start_time_minutes == 0) {
-      $start_time_minutes = "00";
-    }
-    $start_time = $match->startTime[0] . ":" . $start_time_minutes;
+    $start_time = explode(":",$match->startTime);
     if ($match->home == $highlighted_team) {
-        $response = '<b class="volleynator_team_highlight">' . $start_time . "</b>";
+        $response = '<b class="volleynator_team_highlight">' . $start_time[0] .':' .$start_time[1] . "</b>";
     } else {
-        $response = $start_time;
+        $response = $start_time[0] .':' .$start_time[1];
     }
     return $response;
 }

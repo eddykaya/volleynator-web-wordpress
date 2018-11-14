@@ -16,6 +16,8 @@ A plugin which enables you to display volleyball tables from germany and austria
 Download and install the plugin from the wordpress plugin store.
 
 == Changelog ==
+= 2.0.1 =
+* Fixed start time in matchplans
 = 2.0.0 =
 * Moved plugin to new backend
 = 0.0.2 =
@@ -57,5 +59,5 @@ The ID of the league. You can find a list of IDs under https://volleynator.de/pa
 The ID of the competition. You can find a list of IDs under https://volleynator.de/page/competition-ids/
 
 == Example usage ==
-[volleynator_table team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
-[volleynator_matchplan team='VfB Friedrichshafen' association='DVV' league_id='1. Bundesliga Männer' competition_id='1. Bundesliga Männer']
+[volleynator_table team="Dresdner SC" association="DVV" competition_id="DVV-69336503_1._Bundesliga_Frauen-2018_2019_adultFemale" league_id="DVV-1._Bundesliga_Frauen-2018_2019"]
+[volleynator_matchplan team="Dresdner SC" association="DVV" competition_id="DVV-69336503_1._Bundesliga_Frauen-2018_2019_adultFemale" league_id="DVV-1._Bundesliga_Frauen-2018_2019"]
